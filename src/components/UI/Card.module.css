@@ -1,0 +1,5 @@
+.card {
+  background-color: var(--color-background-secondary);
+  filter: var(--shadow-element);
+  border-radius: var(--element-border-radius);
+}

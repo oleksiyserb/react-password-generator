@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
 :root {
+  --white: #ffffff;
   --grey: #f3f3f3;
 
   --black: #292929;
@@ -11,15 +12,24 @@
   --green: #6aff70;
   --yellow: #ffe76a;
   --red: #ff6a6a;
+
+  --shadow: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.15));
 }
 
 :root {
   --color-background: var(--grey);
+  --color-background-secondary: var(--white);
 
   --color-text-primary: var(--black);
   --color-text-secondary: var(--black-light);
 
+  --color-border: var(--black-light);
+
   --color-elements: var(--violet);
+
+  --shadow-element: var(--shadow);
+
+  --element-border-radius: 5px;
 }
 
 *,
