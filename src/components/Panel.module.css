@@ -10,9 +10,17 @@
 }
 
 .panel-text {
+  flex-grow: 1;
+}
+
+.panel-text input {
   font-size: 2.25rem;
   font-weight: 400;
   color: var(--color-text-secondary);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
 }
 
 .panel-bottom {

@@ -7,7 +7,9 @@ const Panel: React.FC<{ password: string }> = ({ password }) => {
   return (
     <Card className={classes.panel}>
       <div className={classes["panel-content"]}>
-        <div className={classes["panel-text"]}>{password}</div>
+        <div className={classes["panel-text"]}>
+          <input type="text" value={password} disabled />
+        </div>
         <div className={classes["panel-actions"]}>
           <button>
             <Copy />

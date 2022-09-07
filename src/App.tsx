@@ -61,10 +61,6 @@ const App: React.FC = () => {
     setFinalPassword(randomPassword);
   };
 
-  // useEffect(() => {
-  //   generatePasswordHandler();
-  // }, [generatePasswordHandler]);
-
   return (
     <section className={classes.generator}>
       <div className={classes.title}>
