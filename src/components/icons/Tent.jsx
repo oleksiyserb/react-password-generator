@@ -26,44 +26,44 @@ const Tent = () => {
       <path
         d="M125 66.6667L145.833 45.8333"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M104.167 45.8333L125 66.6667"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M20.8334 245.833C20.8334 245.833 70.3125 87.5 125 62.5"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M229.167 245.833C229.167 245.833 179.687 87.5 125 62.5"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M20.8333 245.833L4.16663 225"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M229.167 245.833L245.833 225"
         stroke="#556080"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
       />
       <path
         d="M154.658 245.833L166.708 200.642C169.517 190.104 165.9 178.9 157.463 171.992L125.492 145.833L154.658 245.833Z"
