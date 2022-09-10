@@ -27,7 +27,18 @@
   margin-top: 1.25em;
   width: 100%;
   height: 15px;
+}
+
+.panel-hard {
   background-color: var(--green);
+}
+
+.panel-middle {
+  background-color: var(--yellow);
+}
+
+.panel-easy {
+  background-color: var(--red);
 }
 
 .panel-actions > button {

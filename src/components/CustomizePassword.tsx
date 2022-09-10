@@ -1,31 +1,26 @@
-import { useState } from "react";
-
 import Card from "./UI/Card";
 import classes from "./CustomizePassword.module.css";
 import Settings from "../models/settings";
 
 const CustomizePassword: React.FC<{
-  onGeneratePassword: (settings: Settings, length: number) => void;
-}> = ({ onGeneratePassword }) => {
-  const [hasUppercase, setHasUppercase] = useState(true);
-  const [hasLowercase, setHasLowercase] = useState(true);
-  const [hasNumbers, setHasNumbers] = useState(false);
-  const [hasSymbols, setHasSymbols] = useState(false);
-  const [passwordLength, setPasswordLength] = useState(8);
-
-  const passwordSettings = {
-    uppercase: hasUppercase,
-    lowercase: hasLowercase,
-    numbers: hasNumbers,
-    symbols: hasSymbols,
-  };
-
+  onGeneratePassword: (length: number) => void;
+  passwordSettings: Settings;
+  length: number;
+  onChangeLength: (length: number) => void;
+  onChangeSettings: (setting: { key: string; isActive: boolean }) => void;
+}> = ({
+  onGeneratePassword,
+  passwordSettings,
+  length,
+  onChangeLength,
+  onChangeSettings,
+}) => {
   const countConditionals = () => {
     const settings = {
-      lowercase: hasLowercase ? 1 : 0,
-      uppercase: hasUppercase ? 1 : 0,
-      numbers: hasNumbers ? 1 : 0,
-      symbols: hasSymbols ? 1 : 0,
+      lowercase: passwordSettings.lowercase ? 1 : 0,
+      uppercase: passwordSettings.uppercase ? 1 : 0,
+      numbers: passwordSettings.numbers ? 1 : 0,
+      symbols: passwordSettings.symbols ? 1 : 0,
     };
 
     const totalCount =
@@ -40,37 +35,29 @@ const CustomizePassword: React.FC<{
   const lowercaseChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setHasLowercase(event.target.checked);
-
-    // onGeneratePassword(passwordSettings, passwordLength);
+    onChangeSettings({ key: "lowercase", isActive: event.target.checked });
   };
 
   const uppercaseChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setHasUppercase(event.target.checked);
-
-    // onGeneratePassword(passwordSettings, passwordLength);
+    onChangeSettings({ key: "uppercase", isActive: event.target.checked });
   };
 
   const numbersChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setHasNumbers(event.target.checked);
-
-    // onGeneratePassword(passwordSettings, passwordLength);
+    onChangeSettings({ key: "numbers", isActive: event.target.checked });
   };
 
   const symbolsChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setHasSymbols(event.target.checked);
-
-    // onGeneratePassword(passwordSettings, passwordLength);
+    onChangeSettings({ key: "symbols", isActive: event.target.checked });
   };
 
   const changeAndGeneratePassword = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setPasswordLength(+event.target.value);
+    onChangeLength(+event.target.value);
 
-    onGeneratePassword(passwordSettings, +event.target.value);
+    onGeneratePassword(+event.target.value);
   };
 
   return (
@@ -78,12 +65,12 @@ const CustomizePassword: React.FC<{
       <h1 className={classes.title}>Customize your password</h1>
       <div className={classes["customize-actions"]}>
         <div className={classes["customize-bar"]}>
-          <p>Password length: {passwordLength}</p>
+          <p>Password length: {length}</p>
           <input
             type="range"
             min="4"
             max="50"
-            defaultValue={passwordLength}
+            defaultValue={length}
             onChange={changeAndGeneratePassword}
           />
         </div>
@@ -96,7 +83,9 @@ const CustomizePassword: React.FC<{
                   name="setting"
                   id="setting-1"
                   onChange={uppercaseChangeHandler}
-                  disabled={hasUppercase && countConditionals() === 1}
+                  disabled={
+                    passwordSettings.uppercase && countConditionals() === 1
+                  }
                   defaultChecked
                 />
                 <span>Uppercase</span>
@@ -109,7 +98,9 @@ const CustomizePassword: React.FC<{
                   name="setting"
                   id="setting-2"
                   onChange={lowercaseChangeHandler}
-                  disabled={hasLowercase && countConditionals() === 1}
+                  disabled={
+                    passwordSettings.lowercase && countConditionals() === 1
+                  }
                   defaultChecked
                 />
                 <span>Lowercase</span>
@@ -124,7 +115,9 @@ const CustomizePassword: React.FC<{
                   name="setting"
                   id="setting-3"
                   onChange={numbersChangeHandler}
-                  disabled={hasNumbers && countConditionals() === 1}
+                  disabled={
+                    passwordSettings.numbers && countConditionals() === 1
+                  }
                 />
                 <span>Numbers</span>
               </label>
@@ -136,7 +129,9 @@ const CustomizePassword: React.FC<{
                   name="setting"
                   id="setting-4"
                   onChange={symbolsChangeHandler}
-                  disabled={hasSymbols && countConditionals() === 1}
+                  disabled={
+                    passwordSettings.symbols && countConditionals() === 1
+                  }
                 />
                 <span>Symbols</span>
               </label>
